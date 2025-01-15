@@ -1,0 +1,42 @@
+[project]
+name = "pretix-auto-paid"
+dynamic = ["version"]
+description = "Automatically set created orders as paid"
+readme = "README.rst"
+license = {text = "Apache"}
+keywords = ["pretix"]
+authors = [
+    {name = "Sebastian Kurfürst", email = "sebastian.kurfuerst@sandstorm.de"},
+]
+maintainers = [
+    {name = "Sebastian Kurfürst", email = "sebastian.kurfuerst@sandstorm.de"},
+]
+
+dependencies = [
+]
+
+[project.entry-points."pretix.plugin"]
+pretix_auto_paid = "pretix_auto_paid:PretixPluginMeta"
+
+[project.entry-points."distutils.commands"]
+build = "pretix_plugin_build.build:CustomBuild"
+
+[build-system]
+requires = [
+    "setuptools",
+    "pretix-plugin-build",
+]
+
+[project.urls]
+homepage = "GitHub repository URL"
+repository = "GitHub repository URL"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "pretix_auto_paid.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["pretix*"]
+namespaces = false

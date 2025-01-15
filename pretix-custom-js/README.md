@@ -1,20 +1,6 @@
 # Development Setup
 
-1) if on M1 OSX: ensure you have pretix/standlone built for arm64
-
-    ```
-    git clone https://github.com/pretix/pretix
-    cd pretix
-    docker build -t pretix/standalone:latest .
-    ```
-
-2) docker compose up -d
-
-http://127.0.0.1:8000/control/
-admin@localhost
-admin
-
-
+***LEGACY  NOT RECOMMENDED ANYMORE ---
 
 --------------
 

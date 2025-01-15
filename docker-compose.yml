@@ -1,17 +1,13 @@
-version: '3'
+name: 'pretix-plugin-dev'
 services:
   database:
     image: postgres:14
-    ports:
-      - "5432:5432"
     environment: 
       - POSTGRES_USER=pretix
       - POSTGRES_PASSWORD=pretix
 
   redis:
     image: redis:latest
-    ports:
-      - "6379:6379"
 
   pretix:
     build:
@@ -21,10 +17,17 @@ services:
       - database
       - redis
     ports:
-      - "8000:8000"
+      - ${PRETIX_PORT:-8002:8000}
     volumes:
       - .docker-dev/pretix.cfg:/etc/pretix/pretix.cfg
-      - .:/pretix-custom-js
+      - .:/plugins/
       - ./rootfs/data:/data
       #- ./rootfs/src:/pretix/src
 
+  #####
+  # Mailpit (local smtp)
+  mailpit:
+    image: axllent/mailpit:latest
+    hostname: mailpit
+    ports:
+      - ${MAILPIT_PORT:-8025:8025}

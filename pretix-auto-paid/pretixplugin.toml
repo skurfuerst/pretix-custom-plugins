@@ -1,0 +1,5 @@
+[plugin]
+package = "pretix-auto-paid"
+modules = [ "pretix_auto_paid" ]
+marketplace_name = "auto-paid"
+

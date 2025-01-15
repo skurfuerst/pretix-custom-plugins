@@ -1,6 +1,9 @@
 #!/bin/bash
 
-cd /pretix-custom-js
+cd /plugins/pretix-custom-js
+python setup.py develop
+
+cd /plugins/pretix-auto-paid
 python setup.py develop
 
 cd /pretix/src

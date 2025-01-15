@@ -1,0 +1,5 @@
+recursive-include pretix_auto_paid/static *
+recursive-include pretix_auto_paid/templates *
+recursive-include pretix_auto_paid/locale *
+include LICENSE
+exclude .gitlab-ci.yml
