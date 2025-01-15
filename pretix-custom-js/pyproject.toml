@@ -1,0 +1,42 @@
+[project]
+name = "pretix-custom-js"
+dynamic = ["version"]
+description = "Short description"
+readme = "README.rst"
+license = {text = "Apache"}
+keywords = ["pretix"]
+authors = [
+    {name = "Sebastian Kurfürst", email = "sk@sandstorm.de"},
+]
+maintainers = [
+    {name = "Sebastian Kurfürst", email = "sk@sandstorm.de"},
+]
+
+dependencies = [
+]
+
+[project.entry-points."pretix.plugin"]
+pretix_customjs = "pretix_customjs:PretixPluginMeta"
+
+[project.entry-points."distutils.commands"]
+build = "pretix_plugin_build.build:CustomBuild"
+
+[build-system]
+requires = [
+    "setuptools",
+    "pretix-plugin-build",
+]
+
+[project.urls]
+homepage = "github.com/sandstorm/pretix-custom-js"
+repository = "github.com/sandstorm/pretix-custom-js"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "pretix_customjs.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["pretix*"]
+namespaces = false

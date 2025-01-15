@@ -1,0 +1,4 @@
+{% load eventurl %}
+{% if event.settings.customjs__presale %}
+    <script type="text/javascript" src="{% eventurl event "plugins:pretix_customjs:frontend" %}"></script>
+{% endif %}

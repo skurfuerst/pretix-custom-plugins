@@ -1,0 +1,5 @@
+[plugin]
+package = "pretix-custom-js"
+modules = [ "pretix_customjs" ]
+marketplace_name = "custom-js"
+
